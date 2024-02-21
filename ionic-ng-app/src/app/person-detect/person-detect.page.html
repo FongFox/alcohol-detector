@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button size="small" class="ion-float-left" [disabled]="isClicked === true ? true : false" routerLink="">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-button>
+    <ion-title> Alcohol Detector </ion-title>
+    <ion-progress-bar *ngIf="isClicked === true; else elseBlock" type="indeterminate"></ion-progress-bar>
+    <ng-template #elseBlock></ng-template>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <h1 class="ion-text-center">Detect!</h1>
+  <br /><br />
+  <form (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-list>
+        <!-- ID Card Input -->
+        <ion-item>
+          <ion-input
+            label="ID Card" label-placement="floating"
+            name="idCard" [(ngModel)]="person.idCard" type="number"
+            fill="outline" placeholder="Input ID Card here!"></ion-input>
+        </ion-item>
+        <!-- Driver License Input -->
+        <ion-item>
+          <ion-input
+            label="Driver License" label-placement="floating"
+            name="driverLicense" [(ngModel)]="person.driverLicense" type="number"
+            fill="outline" placeholder="Input Driver License Card here!"></ion-input>
+        </ion-item>
+        <!-- Full Name Input -->
+        <ion-item>
+          <ion-input
+            label="Full Name" label-placement="floating"
+            name="fullName" [(ngModel)]="person.fullName"
+            fill="outline" placeholder="Input Full Name here!"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-list> <br/><br/>
+    <ion-button id="present-alert" type="submit" [disabled]="isClicked === true ? true : false"
+      expand="block" style="max-width: 70%; margin: 0 auto;">
+      Detect !!!
+    </ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button size="small" class="ion-float-left" routerLink="">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-button>
+    <ion-title> Alcohol Detector </ion-title>
+    <ion-button size="small" class="ion-float-right" (click)="exportPdf()">Print</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="pdfContent" [fullscreen]="true" scroll=true >
+  <p class="ion-text-center">
+    Cộng Hoà Xã Hội Chủ Nghĩa Việt Nam <br>
+    Độc Lập Tự Do Hạnh Phúc
+  </p>
+  <h3 class="ion-text-center">
+    Đơn xác nhận Nồng Độ Cồn
+  </h3><br>
+  <p style="padding-left: 20px; padding-right: 15px;">
+    Họ tên người đo: {{person.fullName}} <br><br>
+    Có số căn cước: {{person.idCard}} <br><br>
+    Có bằng lái số: {{person.driverLicense}} <br><br>
+    Có số nồng độ cồn đo được: {{person.alcoholValue}} <br><br>
+  </p>
+  <p style="padding-left: 20px; padding-right: 15px;">
+    Với nồng độ cồn cho phép là {{normalValue}}% và nồng độ cồn đo được là {{person.alcoholValue}}%
+  </p>
+  <p style="padding-left: 20px; padding-right: 15px;">
+    Vì vậy, chúng tôi kết luận bạn đã vượt quá {{(person.alcoholValue - normalValue).toFixed(2)}}%
+  </p><br><br><br>
+  <p style="padding-left: 20px; float: left;">
+    Người Bị Đo
+  </p>
+  <p style="padding-right: 35px; float: right;">
+    Người Đo
+  </p>
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button size="small" class="ion-float-left" routerLink="">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-button>
+    <ion-title> Alcohol Detector </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" scroll="true">
+  <h1 class="ion-text-center">Person Detail!</h1>
+
+  <br />
+  <p class="ion-text-center">
+    <img src="../../assets/img/unknown.png" alt="User Image" />
+  </p>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Full Name: {{person.fullName}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>ID Card: {{person.idCard}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Driver License: {{person.driverLicense}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Alcohol Value: {{person.alcoholValue}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Status: {{person.isDrunk === true ? 'DRUNK' : 'NORMAL'}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <br/><br/>
+  <ion-button
+      expand="block" color="success" routerLink="/person-pdf/{{person.id}}"
+      style="max-width: 70%; margin: 0 auto;"
+      [disabled]="person.isDrunk === false ? true : false">
+      PDF
+    </ion-button>
+  <br/><br/><br/>
+
+</ion-content>

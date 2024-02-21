@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button size="small" class="ion-float-left" routerLink="">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-button>
+    <ion-title> Alcohol Detector </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <h1 class="ion-text-center">Person List!</h1>
+  <ion-list *ngFor="let person of personList;">
+    <ion-item  routerLink= "/person-detail/{{person.id}}">
+      <ion-avatar slot="start">
+        <img src="assets/img/unknown.png" />
+      </ion-avatar>
+      <ion-label>
+        {{ person.fullName }} || {{ person.isDrunk ? 'D' : 'N' }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

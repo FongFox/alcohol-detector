@@ -1,0 +1,43 @@
+<h1 class="ms-3 mt-3 mb-3">Person Directories</h1><br/>
+<div class="container-sm">
+  <table class="table text-center">
+    <thead>
+      <tr class="table-dark">
+        <th scope="col">Identity Card</th>
+        <th scope="col">Driver License</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Alcohol Value</th>
+        <th scope="col">Status</th>
+        <th scope="col">
+          Action
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of personList;">
+        <th scope="row">{{person.idCard}}</th>
+        <th scope="row">{{person.driverLicense}}</th>
+        <td>{{person.fullName}}</td>
+        <td>{{person.alcoholValue}}%</td>
+        <td>
+          {{person.isDrunk === true ? 'DRUNK' : 'NORMAL'}}
+        </td>
+        <td>
+          <a type="button"
+            class="btn btn-sm btn-outline-primary ms-2"
+            routerLink="/person-detail/{{person.id}}">
+            Info
+          </a>
+          <a type="button"
+            class="btn btn-sm btn-outline-success ms-2"
+            routerLink="/person-pdf/{{person.id}}"
+            *ngIf="person.isDrunk == true; else elseBlock">
+            PDF
+          </a>
+          <ng-template #elseBlock></ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

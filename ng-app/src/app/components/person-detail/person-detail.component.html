@@ -1,0 +1,33 @@
+<h1 class="ms-3 mt-3 mb-3">Person Profile</h1><br/>
+<div class="container-sm">
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">ID Card</span>
+    <input class="form-control" type="text" value="{{person.idCard}}" aria-label="Disabled input example" disabled readonly>
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Driver License</span>
+    <input class="form-control" type="text" value="{{person.driverLicense}}" aria-label="Disabled input example" disabled readonly>
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Full Name</span>
+    <input class="form-control" type="text" value="{{person.fullName}}" aria-label="Disabled input example" disabled readonly>
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Alcohol Value</span>
+    <input class="form-control" type="text" value="{{person.alcoholValue}}%" aria-label="Disabled input example" disabled readonly>
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Status</span>
+    <input class="form-control" type="text" value="{{person.isDrunk == true ? 'DRUNK' : 'NORMAL'}}" aria-label="Disabled input example" disabled readonly>
+  </div>
+
+  <br/><br/>
+  <div class="d-grid gap-2 col-6 mx-auto" >
+  <a class="btn btn-success" type="button"
+      routerLink="/person-pdf/{{person.id}}" *ngIf="person.isDrunk == true; else elseBlock">
+    PDF
+  </a>
+  <ng-template #elseBlock></ng-template>
+  </div>
+</div>
+

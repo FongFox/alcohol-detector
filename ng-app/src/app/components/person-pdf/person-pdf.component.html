@@ -1,0 +1,27 @@
+<div id="pdfContent" style="padding-left: 20px; padding-right: 20px;">
+  <p style="text-align: center;">
+    Cộng Hoà Xã Hội Chủ Nghĩa Việt Nam <br>
+    Độc Lập Tự Do Hạnh Phúc
+  </p>
+  <h3 style="text-align: center;">
+    Đơn xác nhận Nồng Độ Cồn
+  </h3><br>
+  <p style="padding-left: 20px; padding-right: 15px;">
+    Họ tên người đo: {{person.fullName}} <br><br>
+    Có số căn cước: {{person.idCard}} <br><br>
+    Có bằng lái số: {{person.driverLicense}} <br><br>
+    Có số nồng độ cồn đo được: {{person.alcoholValue}} <br>
+  </p>
+  <p style="padding-left: 20px; padding-right: 15px;">
+    Với nồng độ cồn cho phép là {{normalValue}}% và nồng độ cồn đo được là {{person.alcoholValue}}%
+  </p>
+  <p style="padding-left: 20px; padding-right: 15px;">
+    Vì vậy, chúng tôi kết luận bạn đã vượt quá {{(person.alcoholValue - normalValue).toFixed(2)}}%
+  </p><br>
+  <p style="padding-left: 20px; float: left;">
+    Người Bị Đo
+  </p>
+  <p style="padding-right: 35px; float: right;">
+    Người Đo
+  </p>
+</div>
